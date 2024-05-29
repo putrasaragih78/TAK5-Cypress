@@ -4,7 +4,9 @@
   "description": "Cypress Automation",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test-product": "npx Cypress run --spec 'cypress/e2e/tricentis/product.cy.js' --browser chrome",
+    "test-register": "npx Cypress run --spec 'cypress/e2e/tricentis/register.cy.js' --browser chrome",
+    "test-tricentis": "npx Cypress run --spec 'cypress/e2e/tricentis/*' --browser chrome"
   },
   "author": "",
   "license": "ISC",
