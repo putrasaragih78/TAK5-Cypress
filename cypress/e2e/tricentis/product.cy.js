@@ -1,14 +1,22 @@
 describe('Verify Register Functionality', () => {
   beforeEach(() => {
-    cy.visit('https://demowebshop.tricentis.com')
-  }) 
-  it('Failed Regist - Min Pass Char',() => {
+    cy.visit('')
     cy.title().should('include', 'Demo Web Shop')
-    const product = 'computer'
-    cy.get('#small-searchterms').type(product)
+  }) 
+  afterEach(() => {
+    cy.title().should('include', 'Demo Web Shop')
+  }) 
+  it('Search product 1',() => {
+    cy.get('#small-searchterms').type(Cypress.env('product1'))
     cy.get('form > .button-1').click()
-    cy.url().should('include',product)
-    cy.title().should('include', 'Demo Web Shop. Search')
+    cy.url().should('include',Cypress.env('product1'))
+    
+  })
+  it('Search product 2',() => {
+    cy.get('#small-searchterms').type(Cypress.env('product2'))
+    cy.get('form > .button-1').click()
+    cy.url().should('include',Cypress.env('product2'))
+    
   })
 })
 

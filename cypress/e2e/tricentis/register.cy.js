@@ -1,6 +1,6 @@
 describe('Verify Register Functionality', () => {
   beforeEach(() => {
-    cy.visit('https://demowebshop.tricentis.com/register')
+    cy.visit('/register')
   }) 
   it('Failed Regist - Min Pass Char',() => {
     cy.get('#gender-male').check()
@@ -22,7 +22,7 @@ describe('Verify Register Functionality', () => {
     cy.get('#register-button').click()
     cy.get('.field-validation-error > span').should('contain.text','The password and confirmation password do not match.')
   })
-  it.only('Failed Regist - Email Invalid',() => {
+  it('Failed Regist - Email Invalid',() => {
     cy.get('#gender-male').check()
     cy.get('#FirstName').type('putra')
     cy.get('#LastName').type('saragih')
