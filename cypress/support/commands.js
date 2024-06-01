@@ -13,6 +13,16 @@
 // Cypress.Commands.add('login', (email, password) => { ... })
 //
 //
+Cypress.Commands.add('cariBarang', (inputProduct) => {
+    cy.get('#small-searchterms').type(inputProduct)
+    cy.get('form > .button-1').click()
+    cy.url().should('include',inputProduct)
+})
+
+Cypress.Commands.add('ketik', (locator,value) => {
+    cy.get(locator).should('be.visible').type(value)
+   
+})
 // -- This is a child command --
 // Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
 //
